@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class name_list : MonoBehaviour
 {
+    int MAXMENBER = 10;
     string[] menbers = new string[10];
     string men1 = "kaneko"; 
 
@@ -11,6 +12,7 @@ public class name_list : MonoBehaviour
     void Start()
     {
         menbers[0] = men1;
+
     }
 
     // Update is called once per frame
