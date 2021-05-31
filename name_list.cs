@@ -9,6 +9,7 @@ public class name_list : MonoBehaviour
     string men1 = "kaneko"; 
     string men2 = "suzuki";
     string men3 = "ishii";
+    string men4 = "takahashi";
 
     // Start is called before the first frame update
     void Start()
