@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class charStatus : MonoBehaviour
 {
+    //キャラクターステータス管理スクリプト
+    //初期値
+    public int hp;
+    public int mp;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,7 +15,6 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    //試し
     void Update()
     {
         
