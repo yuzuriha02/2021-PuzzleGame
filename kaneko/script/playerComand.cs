@@ -7,7 +7,7 @@ public class playerComand : MonoBehaviour
 {
     charStatus status;//ステータス関係スクリプト
     hpControll e_hp_c;//敵HP管理スクリプト
-    Text log_text;
+    backLog log_text;
     int atackPower;//戦うの攻撃力
     
     // Start is called before the first frame update
@@ -22,12 +22,12 @@ public class playerComand : MonoBehaviour
         atackPower = status.atackPower;
         //ログテキストのテキストスクリプト取得
         GameObject logText = GameObject.Find("logText");
-        log_text = logText.GetComponent<Text>();
+        log_text = logText.GetComponent<backLog>();
     }
 
     public void Atack(){
         e_hp_c.Damage(atackPower);
         string resultlog = "たたかうで敵に"+atackPower+"ダメージを与えた";
-        log_text.text += "\n" + resultlog; 
+        log_text.addtext(resultlog);
     }
 }

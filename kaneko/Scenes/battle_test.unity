@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 637976930}
   - component: {fileID: 637976932}
   - component: {fileID: 637976931}
+  - component: {fileID: 637976933}
   m_Layer: 5
   m_Name: logText
   m_TagString: Untagged
@@ -544,7 +545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "1\u30BF\u30FC\u30F3\u76EE"
 --- !u!222 &637976932
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -553,6 +554,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637976929}
   m_CullTransparentMesh: 0
+--- !u!114 &637976933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637976929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9884ffd17aa314fa7984e246b076ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692350943
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +579,7 @@ GameObject:
   - component: {fileID: 692350945}
   - component: {fileID: 692350947}
   m_Layer: 0
-  m_Name: HP
+  m_Name: enemyHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -891,7 +904,7 @@ GameObject:
   - component: {fileID: 760845690}
   - component: {fileID: 760845689}
   m_Layer: 0
-  m_Name: MP
+  m_Name: playerMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,7 +1295,7 @@ GameObject:
   - component: {fileID: 1366675264}
   m_Layer: 0
   m_Name: player_status
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1323,7 +1336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   mp: 30
-  atackPower: 0
+  atackPower: 20
 --- !u!114 &1366675265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1453,7 +1466,7 @@ GameObject:
   - component: {fileID: 1441222731}
   - component: {fileID: 1441222730}
   m_Layer: 0
-  m_Name: HP
+  m_Name: playerHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1847,6 +1860,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 286232076}
     m_Modifications:
+    - target: {fileID: 7389298590744396013, guid: 8a36108cd3f39424fbd06fc02a820acd, type: 3}
+      propertyPath: m_Text
+      value: "\u305F\u305F\u304B\u3046"
+      objectReference: {fileID: 0}
     - target: {fileID: 7389298591751519153, guid: 8a36108cd3f39424fbd06fc02a820acd, type: 3}
       propertyPath: m_Name
       value: comand
