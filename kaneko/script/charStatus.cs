@@ -6,6 +6,7 @@ public class charStatus : MonoBehaviour
 {
     public int hp;
     public int mp;
+    public int atackPower;//たたかうコマンドの攻撃力
     // Start is called before the first frame update
     void Start()
     {

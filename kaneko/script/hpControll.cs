@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class hp_controll : MonoBehaviour
+public class hpControll : MonoBehaviour
 {
     int hp;
-    private Text hp_text;
+    Text hp_text;//表示HP
     // Start is called before the first frame update
     void Start()
     {
-        hp_text = GetComponent<Text>();
+        //初期HPの設定　初期HPは親オブジェクトにcharStatusをインポートし参照
         GameObject par_char = transform.parent.gameObject;
         charStatus status = par_char.GetComponent<charStatus>(); 
         hp = status.hp;
+        hp_text = GetComponent<Text>();
         hp_text.text = "HP:"+hp.ToString("000");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-
+    public void Damage(int damage){
+        hp = hp - damage;
+        if(hp<0){
+            hp = 0;
+        }
+        hp_text.text = "HP:"+hp.ToString("000");
     }
 }
