@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class playerComand : MonoBehaviour
 {
     charStatus status;//プレイヤーステータススクリプト
+    comandValue comandValue;
     hpControll e_hp_c;//敵HP管理スクリプト
     hpControll p_hp_c;//プレイヤーHP管理スクリプト
     mpControll p_mp_c;//プレイヤーMP管理スクリプト
@@ -15,6 +16,8 @@ public class playerComand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject comandManager = transform.parent.gameObject;
+        comandValue = comandManager.GetComponent<comandValue>();
         //敵HP管理スクリプトの取得
         GameObject enemyHP = GameObject.Find("enemyHP");
         e_hp_c = enemyHP.GetComponent<hpControll>();
@@ -46,21 +49,6 @@ public class playerComand : MonoBehaviour
         string resultlog = "防御した";
         log_text.addtext(resultlog);
     }
-    //ヒール
-    public void heal(){
-        int mp_cost = 10;//消費MP
-        int recovery_point = 20;//回復量
-        //MP消費，足りなければ実行しない
-        if(p_mp_c.mpConsumption(mp_cost)){
-            p_hp_c.Recovery(recovery_point);
-            string resultlog = "HPを"+recovery_point+"回復した";
-            log_text.addtext(resultlog);
-        }
-        else{
-            string resultlog = "MPが足りません";
-            log_text.addtext(resultlog);
-        }
-    }
     //ファイア
     public void fire(){
         int mp_cost = 15;//消費MP
@@ -72,6 +60,96 @@ public class playerComand : MonoBehaviour
         }
         else{
             string resultlog = "MPが足りません";
+            log_text.addtext(resultlog);
+        }
+    }
+    //アイス
+    public void ice(){
+        int mp_cost = 25;
+        int damage = 45;
+        if(p_mp_c.mpConsumption(mp_cost)){
+            string resultlog = "アイスで攻撃";
+            log_text.addtext(resultlog);
+            e_hp_c.Damage(damage);
+        }
+        else{
+            string resultlog = "MPが足りません";
+            log_text.addtext(resultlog);
+        }
+    }
+    //サンダー
+    public void thunder(){
+        int mp_cost = 40;
+        int damage = 60;
+        if(p_mp_c.mpConsumption(mp_cost)){
+            string resultlog = "サンダーで攻撃";
+            log_text.addtext(resultlog);
+            e_hp_c.Damage(damage);
+        }
+        else{
+            string resultlog = "MPが足りません";
+            log_text.addtext(resultlog);
+        }
+    }
+    //ヒール
+    public void heal(){
+        int mp_cost = 10;//消費MP
+        int recovery_point = 20;//回復量
+        //MP消費，足りなければ実行しない
+        if(p_mp_c.mpConsumption(mp_cost)){
+            p_hp_c.Recovery(recovery_point);
+            string resultlog = "ヒールを使った\nHPを"+recovery_point+"回復した";
+            log_text.addtext(resultlog);
+        }
+        else{
+            string resultlog = "MPが足りません";
+            log_text.addtext(resultlog);
+        }
+    }
+    //薬草
+    public void medicinalHerbs(){
+        int count = comandValue.medicinalHerbs_count;//使用回数
+        int recovery = comandValue.medicinalHerbs_recover;//回復量
+        if(count>0){
+            comandValue.medicinalHerbs_count -= 1;//使用回数消費
+            p_hp_c.Recovery(recovery);
+            string resultlog = "薬草を使った\nHPを"+recovery+"回復した";
+            log_text.addtext(resultlog);
+        }
+        else{
+            string resultlog = "薬草がありません";
+            log_text.addtext(resultlog);
+        }
+    }
+    //丸薬
+    public void MPrecovery(){
+        int count= comandValue.MPrecovery_count;//使用回数
+        int recovery = comandValue.MPrecovery_recover;//補正値
+        if(count>0){
+            comandValue.MPrecovery_count -= 1;//使用回数消費
+            p_hp_c.Recovery(recovery);
+            string resultlog = "MP回復薬を使った\nHPを"+recovery+"回復した";
+            log_text.addtext(resultlog);
+        }
+        else{
+            string resultlog = "MP回復薬がありません";
+            log_text.addtext(resultlog);
+        }
+    }
+    //丸薬
+    public void atackpill(){
+        int count= comandValue.atackpill_count;//使用回数
+        int buff_point = comandValue.atackpill_correction;//補正値
+
+        if(count>0){
+            comandValue.atackpill_count -= 0;
+            atackPower += buff_point;
+            string resultlog = "丸薬を使った\n攻撃力が"+buff_point+"上昇した";
+            log_text.addtext(resultlog);
+            count -= 1;
+        }
+        else{
+            string resultlog = "丸薬がありません";
             log_text.addtext(resultlog);
         }
     }

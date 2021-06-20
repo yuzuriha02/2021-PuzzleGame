@@ -8,7 +8,7 @@ public class charStatus : MonoBehaviour
     public int hp;
     public int mp;
     public int atackPower;//たたかうコマンドの攻撃力
-    public bool defenceSwich=false;
+    [HideInInspector]public bool defenceSwich=false;
     // Start is called before the first frame update
     void Start()
     {
