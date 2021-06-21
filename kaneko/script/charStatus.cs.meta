@@ -3,7 +3,11 @@ guid: be9ed18c5e6645e439b7f359ad7864dc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Abuff: {instanceID: 0}
+  - Adebuff: {instanceID: 0}
+  - Dbuff: {instanceID: 0}
+  - Ddebuff: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
