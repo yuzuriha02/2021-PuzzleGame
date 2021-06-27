@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Title : MonoBehaviour
+public class Scenemove : MonoBehaviour
 {
      private bool firstPush = false;
+     public string scenename;
 
-     public void PressStart()
+     public void nextscene(string scenename)
      {
-          Debug.Log("Press Start!");
+          //Debug.Log("Press Start!");
           if (!firstPush)
           {
-              Debug.Log("Go Next Scene!");
-              SceneManager.LoadScene("scene1");
+              //Debug.Log("Go Next Scene!");
+              SceneManager.LoadScene(scenename);
               firstPush = true;
           }
      }
