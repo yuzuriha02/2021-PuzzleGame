@@ -53,7 +53,7 @@ public class playerComand : MonoBehaviour
     public void fire(){
         int mp_cost = 15;//消費MP
         int damage = 30;//ダメージ
-        if(p_mp_c.mpConsumption(mp_cost)){
+        if(p_mp_c.mpUse(mp_cost)){
             string resultlog = "ファイアで攻撃";
             log_text.addtext(resultlog);
             e_hp_c.Damage(damage);
@@ -67,7 +67,7 @@ public class playerComand : MonoBehaviour
     public void ice(){
         int mp_cost = 25;
         int damage = 45;
-        if(p_mp_c.mpConsumption(mp_cost)){
+        if(p_mp_c.mpUse(mp_cost)){
             string resultlog = "アイスで攻撃";
             log_text.addtext(resultlog);
             e_hp_c.Damage(damage);
@@ -81,7 +81,7 @@ public class playerComand : MonoBehaviour
     public void thunder(){
         int mp_cost = 40;
         int damage = 60;
-        if(p_mp_c.mpConsumption(mp_cost)){
+        if(p_mp_c.mpUse(mp_cost)){
             string resultlog = "サンダーで攻撃";
             log_text.addtext(resultlog);
             e_hp_c.Damage(damage);
@@ -96,7 +96,7 @@ public class playerComand : MonoBehaviour
         int mp_cost = 10;//消費MP
         int recovery_point = 20;//回復量
         //MP消費，足りなければ実行しない
-        if(p_mp_c.mpConsumption(mp_cost)){
+        if(p_mp_c.mpUse(mp_cost)){
             p_hp_c.Recovery(recovery_point);
             string resultlog = "ヒールを使った\nHPを"+recovery_point+"回復した";
             log_text.addtext(resultlog);
@@ -121,13 +121,13 @@ public class playerComand : MonoBehaviour
             log_text.addtext(resultlog);
         }
     }
-    //丸薬
+    //MP回復薬
     public void MPrecovery(){
         int count= comandValue.MPrecovery_count;//使用回数
         int recovery = comandValue.MPrecovery_recover;//補正値
         if(count>0){
             comandValue.MPrecovery_count -= 1;//使用回数消費
-            p_hp_c.Recovery(recovery);
+            p_mp_c.mpFluctuation(recovery*-1);
             string resultlog = "MP回復薬を使った\nHPを"+recovery+"回復した";
             log_text.addtext(resultlog);
         }

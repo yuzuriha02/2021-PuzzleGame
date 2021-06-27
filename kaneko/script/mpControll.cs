@@ -25,14 +25,20 @@ public class mpControll : MonoBehaviour
     {
         
     }
-    public bool mpConsumption(int loss_mp){
-        mp -= loss_mp;
-        if(mp<0){
+    public bool mpUse(int loss_mp){
+        int chack_mp = mp;
+        chack_mp -= loss_mp;
+        if(chack_mp<0){
             return false;
         }
         else{
+            mpFluctuation(loss_mp);
             mp_text.text = "MP:"+mp.ToString("000");
             return true;
         }
+    }
+    public void mpFluctuation(int change_mp){
+        mp -= change_mp;
+        mp_text.text = "MP:"+mp.ToString("000");
     }
 }
