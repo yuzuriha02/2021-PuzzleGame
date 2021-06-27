@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408107418}
   m_HandleRect: {fileID: 408107417}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2169,6 +2169,7 @@ GameObject:
   - component: {fileID: 876144096}
   - component: {fileID: 876144095}
   - component: {fileID: 876144094}
+  - component: {fileID: 876144097}
   m_Layer: 5
   m_Name: EA
   m_TagString: Untagged
@@ -2239,7 +2240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 876144095}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 876144097}
+        m_TargetAssemblyTypeName: enemyComand, Assembly-CSharp
+        m_MethodName: Atack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &876144095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2278,6 +2291,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876144092}
   m_CullTransparentMesh: 1
+--- !u!114 &876144097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876144092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3abce31c54d2b4282e39c32a717a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &943798166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2480,7 @@ GameObject:
   - component: {fileID: 1242604736}
   - component: {fileID: 1242604738}
   - component: {fileID: 1242604737}
+  - component: {fileID: 1242604739}
   m_Layer: 5
   m_Name: turn
   m_TagString: Untagged
@@ -2514,7 +2540,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6B8B\u308A\u30BF\u30FC\u30F3\u6570:5T"
+  m_Text: "\u6B8B\u308A\u30BF\u30FC\u30F3\u6570:5"
 --- !u!222 &1242604738
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2523,6 +2549,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242604735}
   m_CullTransparentMesh: 1
+--- !u!114 &1242604739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242604735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6638a33cb2e7fc4aa40bec20769931f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Turn: 5
 --- !u!1 &1295005452
 GameObject:
   m_ObjectHideFlags: 0
