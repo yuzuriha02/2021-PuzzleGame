@@ -9,6 +9,7 @@ public class enemyComand : MonoBehaviour
     hpControll p_hp_c;//プレイヤーHP管理スクリプト
     mpControll p_mp_c;//プレイヤーMP管理スクリプト
     backLog log_text;//バックログスクリプト
+    TurnManager turnmanager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class enemyComand : MonoBehaviour
         //ログテキストのテキストスクリプト取得
         GameObject logText = GameObject.Find("logText");
         log_text = logText.GetComponent<backLog>();
+        GameObject Turn=GameObject.Find("turn");
+        turnmanager=Turn.GetComponent<TurnManager>();
     }
 
     public void Atack(){
@@ -31,5 +34,6 @@ public class enemyComand : MonoBehaviour
         string resultlog = "たたかうで攻撃";
         log_text.addtext(resultlog);
         p_hp_c.Damage(atackPower);
+        turnmanager.nextturn();
     }
 }
