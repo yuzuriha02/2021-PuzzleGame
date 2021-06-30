@@ -18,5 +18,4 @@ public class comandValue : MonoBehaviour
     public int atackpill_count=1;
     public int MPrecovery_recover=20;
     public int MPrecovery_count=1;
-
 }

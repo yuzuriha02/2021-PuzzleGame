@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class playerComand : MonoBehaviour
 {
     charStatus status;//プレイヤーステータススクリプト
-    comandValue comandValue;
+    comandValue comandValue;//各コマンドの値データベース
+    Dictionary<string,int[]> comandDic;//データベース内のコマンド値辞書<key,[効果値，コスト]>
     hpControll e_hp_c;//敵HP管理スクリプト
     hpControll p_hp_c;//プレイヤーHP管理スクリプト
     mpControll p_mp_c;//プレイヤーMP管理スクリプト
@@ -16,6 +17,7 @@ public class playerComand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //コマンドデータベース取得
         GameObject comandManager = transform.parent.gameObject;
         comandValue = comandManager.GetComponent<comandValue>();
         //敵HP管理スクリプトの取得
