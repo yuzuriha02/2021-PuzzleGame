@@ -25,8 +25,8 @@ public class enemyComand : MonoBehaviour
         //ログテキストのテキストスクリプト取得
         GameObject logText = GameObject.Find("logText");
         log_text = logText.GetComponent<backLog>();
-        GameObject Turn=GameObject.Find("turn");
-        turnmanager=Turn.GetComponent<TurnManager>();
+        GameObject Turn = GameObject.Find("turn");
+        turnmanager = Turn.GetComponent<TurnManager>();
     }
 
     public void Atack(){
